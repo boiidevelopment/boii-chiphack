@@ -59,21 +59,28 @@ function StartGame() {
         this.style.left = Math.round(Math.random() * w) + "px";
         AddCounter()
     })
+    StartCountdown()
+}
+
+// starts countdown timer
+function StartCountdown() {
     var htmlResult = '<h2>CHIPS FOUND<h2>'+
     '<h2>'+counter+'/'+chipsneeded+'</h2>'
     $('#info-container').html(htmlResult);
-    var countdown = setInterval(function(){
-        if(timeleft <= 0){
-            if (counter <= chipsneeded) {
-                clearInterval(countdown);
-                setTimeout(CloseGame(), 1000);
-            }
-        } else {
-            document.getElementById("countdown").innerHTML = '<h2>'+timeleft+ 's REMAINING</h2>';
-        }
-        timeleft -= 1;
-    }, 1000);
 }
+
+// countdown timer
+const countdown = setInterval(function() {
+    if (timeleft === 0) {
+        if (counter <= chipsneeded) {
+            clearInterval(countdown);
+            setTimeout(CloseGame(), 1000);
+        }
+    } else {
+        document.getElementById("countdown").innerHTML = '<h2>'+timeleft+ 's REMAINING</h2>';
+    }
+    timeleft -= 1;
+}, 1000);
 
 // adds counter when chip found
 function AddCounter() {
@@ -87,6 +94,7 @@ function AddCounter() {
     }
 }
 
+// closes game
 function CloseGame() {
     $.post(`https://boii-chiphack/CloseGame`, JSON.stringify({'success': false}));
 }
