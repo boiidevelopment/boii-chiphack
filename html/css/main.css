@@ -15,9 +15,9 @@ body  {
 #start-container {
     position: absolute;
     top: 39vh;
-    left: 65vh;
+    left: 38vw;
     height: 16vh;
-    width: 50vh;
+    width: 25vw;
     border: 5px solid rgba(31, 30, 30, 1);
     border-radius: 25px;
     background-color: black;
@@ -42,8 +42,8 @@ body  {
 
 #game-container {
     position: absolute;
-    top: 16.5%;
-    left: 20.5%;
+    top: 16vh;
+    left: 22vw;
     height: 65vh;
     width: 100vh;
     border: 5px solid rgba(31, 30, 30, 1);
